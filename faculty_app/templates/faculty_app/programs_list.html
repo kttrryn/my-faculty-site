@@ -1,0 +1,37 @@
+{% extends 'faculty_app/base.html' %}
+
+{% block title %}Спеціальності факультету{% endblock %}
+
+{% block content %}
+<div class="programs-container">
+    <h1>Спеціальності факультету</h1>
+
+    {% if programs %}
+        <div class="programs-list">
+            {% for program in programs %}
+                <div class="program-card" style="border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; border-radius: 8px;">
+                    <h2>
+                        <!-- Посилання на сторінку конкретної спеціальності -->
+                        <a href="/programs/{{ program.id }}/">{{ program.code }} — {{ program.name }}</a>
+                    </h2>
+
+                    <p class="description">
+                        {{ program.description|truncatewords:50 }}
+                    </p>
+
+                    <div class="coordinator-info" style="background-color: #f9f9f9; padding: 10px; margin-top: 10px;">
+                        <p><strong>Координатор набору:</strong> {{ program.coordinator }}</p>
+                        <p><strong>Контакт:</strong> {{ program.coord_number }}</p>
+                    </div>
+
+                    <p>
+                        <a href="/programs/{{ program.id }}/" class="btn-more">Читати детальніше &rarr;</a>
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Наразі інформація про спеціальності відсутня</p>
+    {% endif %}
+</div>
+{% endblock %}
