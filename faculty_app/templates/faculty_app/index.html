@@ -1,31 +1,25 @@
-{% extends 'faculty_app/base.html' %}
-
+{% extends "faculty_app/base.html" %}
 {% block title %}Головна - {{ info.title|default:"Факультет" }}{% endblock %}
-
 {% block content %}
-<div class="faculty-info">
+  <div class="faculty-info">
     {% if info %}
-        <h1>{{ info.title }}</h1>
-
-        <section class="info-section">
-            <h2>Про факультет</h2>
-            <!-- linebreaks зберігає абзаци з тексту -->
-            {{ info.description|linebreaks }}
-        </section>
-
-        <section class="info-section">
-            <h2>Основна інформація</h2>
-            {{ info.general_info|linebreaks }}
-        </section>
-
-        <section class="info-section">
-            <h2>Контакти</h2>
-            {{ info.contacts|linebreaks }}
-        </section>
-
+      <h1>{{ info.title }}</h1>
+      <section class="info-section">
+        <h2>Про факультет</h2>
+        <!-- linebreaks зберігає абзаци з тексту -->
+        {{ info.description|linebreaks }}
+      </section>
+      <section class="info-section">
+        <h2>Основна інформація</h2>
+        {{ info.general_info|linebreaks }}
+      </section>
+      <section class="info-section">
+        <h2>Контакти</h2>
+        {{ info.contacts|linebreaks }}
+      </section>
     {% else %}
-        <h1>Ласкаво просимо на сайт факультету!</h1>
-        <p>Інформація про факультет ще не додана </p>
+      <h1>Ласкаво просимо на сайт факультету!</h1>
+      <p>Інформація про факультет ще не додана</p>
     {% endif %}
-</div>
+  </div>
 {% endblock %}

@@ -1,35 +1,35 @@
-{% extends 'faculty_app/base.html' %}
-
+{% extends "faculty_app/base.html" %}
 {% block title %}{{ program.code }} — {{ program.name }}{% endblock %}
-
 {% block content %}
-<div class="program-detail">
+  <div class="program-detail">
     <!-- Кнопка назад -->
-    <a href="/programs/" class="btn-back" style="display: inline-block; margin-bottom: 20px;">&larr; До всіх спеціальностей</a>
-
+    <a href="/programs/"
+       class="btn-back"
+       style="display: inline-block;
+              margin-bottom: 20px">← До всіх спеціальностей</a>
     <h1>{{ program.code }} — {{ program.name }}</h1>
-
-    <div class="department-info" style="margin-bottom: 20px; font-size: 1.1em;">
-        <p>
-            <strong>Випускова кафедра:</strong>
-            <a href="/departments/{{ program.department.id }}/">{{ program.department.name }}</a>
-        </p>
+    <div class="department-info" style="margin-bottom: 20px; font-size: 1.1em">
+      <p>
+        <strong>Випускова кафедра:</strong>
+        <a href="/departments/{{ program.department.id }}/">{{ program.department.name }}</a>
+      </p>
     </div>
-
     <section class="info-section">
-        <h2>Опис спеціальності</h2>
-        {{ program.description|linebreaks }}
+      <h2>Опис спеціальності</h2>
+      {{ program.description|linebreaks }}
     </section>
-
     <section class="info-section">
-        <h2>Дисципліни, що вивчаються</h2>
-        {{ program.courses|linebreaks }}
+      <h2>Дисципліни, що вивчаються</h2>
+      {{ program.courses|linebreaks }}
     </section>
-
-    <section class="coordinator-section" style="background-color: #f0f8ff; padding: 20px; border-radius: 8px; margin-top: 30px;">
-        <h2>Контакти для вступників</h2>
-        <p><strong>Координатор набору:</strong> {{ program.coordinator }}</p>
-        <p><strong>Телефон:</strong> {{ program.coord_number }}</p>
+    <section class="coordinator-section"
+             style="background-color: #f0f8ff;
+                    padding: 20px;
+                    border-radius: 8px;
+                    margin-top: 30px">
+      <h2>Контакти для вступників</h2>
+      <p><strong>Координатор набору:</strong> {{ program.coordinator }}</p>
+      <p><strong>Телефон:</strong> {{ program.coord_number }}</p>
     </section>
-</div>
+  </div>
 {% endblock %}

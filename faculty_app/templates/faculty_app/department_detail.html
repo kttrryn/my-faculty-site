@@ -1,60 +1,62 @@
-{% extends 'faculty_app/base.html' %}
-
+{% extends "faculty_app/base.html" %}
 {% block title %}{{ department.name }}{% endblock %}
-
 {% block content %}
-<div class="department-detail">
+  <div class="department-detail">
     <!-- Кнопка для повернення до списку -->
-    <a href="/departments/" class="btn-back" style="display: inline-block; margin-bottom: 20px;">&larr; До всіх кафедр</a>
-
+    <a href="/departments/"
+       class="btn-back"
+       style="display: inline-block;
+              margin-bottom: 20px">← До всіх кафедр</a>
     <h1>{{ department.name }}</h1>
-
-    <div class="department-info" style="font-size: 1.1em; margin-bottom: 30px;">
-        <p><strong>Завідувач кафедри:</strong> {{ department.chair }}</p>
+    <div class="department-info" style="font-size: 1.1em; margin-bottom: 30px">
+      <p><strong>Завідувач кафедри:</strong> {{ department.chair }}</p>
     </div>
-
-    <section class="programs-section" style="margin-bottom: 30px; background-color: #f9f9f9; padding: 20px; border-radius: 8px;">
-        <h2>Спеціальності кафедри</h2>
-
-        {% if department.programs.all %}
-            <ul style="font-size: 1.1em;">
-                {% for program in department.programs.all %}
-                    <li style="margin-bottom: 10px;">
-                        <a href="/programs/{{ program.id }}/">{{ program.code }} — {{ program.name }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>За цією кафедрою поки не закріплено жодної спеціальності.</p>
-        {% endif %}
+    <section class="programs-section"
+             style="margin-bottom: 30px;
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border-radius: 8px">
+      <h2>Спеціальності кафедри</h2>
+      {% if department.programs.all %}
+        <ul style="font-size: 1.1em;">
+          {% for program in department.programs.all %}
+            <li style="margin-bottom: 10px;">
+              <a href="/programs/{{ program.id }}/">{{ program.code }} — {{ program.name }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>За цією кафедрою поки не закріплено жодної спеціальності.</p>
+      {% endif %}
     </section>
-
     <section class="teachers-section">
-        <h2>Склад кафедри (Викладачі)</h2>
-
-        {% if teachers %}
-            <!-- Таблиця для виведення списку викладачів -->
-            <table class="teachers-table" style="width: 100%; border-collapse: collapse; margin-top: 15px;">
-                <thead>
-                    <tr style="background-color: #f2f2f2; text-align: left;">
-                        <th style="padding: 12px; border-bottom: 2px solid #ddd;">ПІБ викладача</th>
-                        <th style="padding: 12px; border-bottom: 2px solid #ddd;">Посада</th>
-                        <th style="padding: 12px; border-bottom: 2px solid #ddd;">Науковий ступінь</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for teacher in teachers %}
-                        <tr>
-                            <td style="padding: 12px; border-bottom: 1px solid #ddd;"><strong>{{ teacher.name }}</strong></td>
-                            <td style="padding: 12px; border-bottom: 1px solid #ddd;">{{ teacher.position }}</td>
-                            <td style="padding: 12px; border-bottom: 1px solid #ddd;">{{ teacher.degree }}</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        {% else %}
-            <p>Наразі інформація про викладачів цієї кафедри відсутня</p>
-        {% endif %}
+      <h2>Склад кафедри (Викладачі)</h2>
+      {% if teachers %}
+        <!-- Таблиця для виведення списку викладачів -->
+        <table class="teachers-table"
+               style="width: 100%;
+                      border-collapse: collapse;
+                      margin-top: 15px">
+          <thead>
+            <tr style="background-color: #f2f2f2; text-align: left;">
+              <th style="padding: 12px; border-bottom: 2px solid #ddd;">ПІБ викладача</th>
+              <th style="padding: 12px; border-bottom: 2px solid #ddd;">Посада</th>
+              <th style="padding: 12px; border-bottom: 2px solid #ddd;">Науковий ступінь</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for teacher in teachers %}
+              <tr>
+                <td style="padding: 12px; border-bottom: 1px solid #ddd;"><strong>{{ teacher.name }}</strong></td>
+                <td style="padding: 12px; border-bottom: 1px solid #ddd;">{{ teacher.position }}</td>
+                <td style="padding: 12px; border-bottom: 1px solid #ddd;">{{ teacher.degree }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>Наразі інформація про викладачів цієї кафедри відсутня</p>
+      {% endif %}
     </section>
-</div>
+  </div>
 {% endblock %}

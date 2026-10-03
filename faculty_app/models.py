@@ -3,7 +3,9 @@ from django.db import models
 
 class Department(models.Model):
     name = models.CharField(max_length=150, verbose_name="name")
-    chair = models.CharField(max_length=255, verbose_name="chair")  # chair of department
+    chair = models.CharField(
+        max_length=255, verbose_name="chair"
+    )  # chair of department
 
     def __str__(self):
         return self.name
@@ -14,12 +16,14 @@ class Program(models.Model):
     code = models.CharField(max_length=25, verbose_name="code")
     description = models.TextField(max_length=1000, verbose_name="description")
     coordinator = models.CharField(max_length=150, verbose_name="coordinator")
-    coord_number = models.CharField(max_length=10, verbose_name="coord_number")  # 0xx-xxx-xxxx
+    coord_number = models.CharField(
+        max_length=10, verbose_name="coord_number"
+    )  # 0xx-xxx-xxxx
     department = models.ForeignKey(
         Department,
         on_delete=models.CASCADE,
-        related_name='programs',
-        verbose_name='department'
+        related_name="programs",
+        verbose_name="department",
     )
     courses = models.TextField(max_length=1000, verbose_name="courses")
 
@@ -34,8 +38,8 @@ class Teacher(models.Model):
     department = models.ForeignKey(
         Department,
         on_delete=models.CASCADE,
-        related_name='teachers',
-        verbose_name='department'
+        related_name="teachers",
+        verbose_name="department",
     )
 
     def __str__(self):
@@ -43,7 +47,9 @@ class Teacher(models.Model):
 
 
 class MainPageInfo(models.Model):
-    title = models.CharField(max_length=150, verbose_name="faculty_name", default="Факультет X")
+    title = models.CharField(
+        max_length=150, verbose_name="faculty_name", default="Факультет X"
+    )
     description = models.TextField(verbose_name="description")
     general_info = models.TextField(verbose_name="general_info")
     contacts = models.TextField(verbose_name="contacts")
