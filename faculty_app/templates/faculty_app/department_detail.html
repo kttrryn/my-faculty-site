@@ -13,8 +13,24 @@
         <p><strong>Завідувач кафедри:</strong> {{ department.chair }}</p>
     </div>
 
+    <section class="programs-section" style="margin-bottom: 30px; background-color: #f9f9f9; padding: 20px; border-radius: 8px;">
+        <h2>Спеціальності кафедри</h2>
+
+        {% if department.programs.all %}
+            <ul style="font-size: 1.1em;">
+                {% for program in department.programs.all %}
+                    <li style="margin-bottom: 10px;">
+                        <a href="/programs/{{ program.id }}/">{{ program.code }} — {{ program.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>За цією кафедрою поки не закріплено жодної спеціальності.</p>
+        {% endif %}
+    </section>
+
     <section class="teachers-section">
-        <h2>Склад кафедри</h2>
+        <h2>Склад кафедри (Викладачі)</h2>
 
         {% if teachers %}
             <!-- Таблиця для виведення списку викладачів -->
