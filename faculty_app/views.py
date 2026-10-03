@@ -7,7 +7,7 @@ def main(request):
     context = {  # variable names for html
         'info': info
     }
-    return render(request, 'index.html', context)
+    return render(request, 'faculty_app/index.html', context)
 
 
 def program_list(request):
@@ -15,7 +15,7 @@ def program_list(request):
     context = {
         'programs': programs
     }
-    return render(request, 'programs_list.html', context)
+    return render(request, 'faculty_app/programs_list.html', context)
 
 
 def program_detail(request, id):
@@ -23,7 +23,7 @@ def program_detail(request, id):
     context = {
         'program': program
     }
-    return render(request, 'program_detail.html', context)
+    return render(request, 'faculty_app/program_detail.html', context)
 
 
 def department_list(request):
@@ -31,7 +31,7 @@ def department_list(request):
     context = {
         'departments': departments
     }
-    return render(request, 'departments_list.html', context)
+    return render(request, 'faculty_app/departments_list.html', context)
 
 
 def department_detail(request, id):
@@ -41,4 +41,4 @@ def department_detail(request, id):
         'department': department,
         'teachers': teachers
     }
-    return render(request, 'department_detail.html', context)
+    return render(request, 'faculty_app/department_detail.html', context)
