@@ -62,7 +62,7 @@ class ExchangeProgram(models.Model):
     university_name = models.CharField(max_length=255, verbose_name="Назва університету")
     country = models.CharField(max_length=255, verbose_name="Країна")
     languages = models.CharField(max_length=255, verbose_name="Мови навчання")
-    places = models.CharField(max_length=50, verbose_name="Кількість місць")
+    places = models.IntegerField(verbose_name="Кількість місць")
     deadline = models.DateField(verbose_name="Дедлайн подачі")
     description = models.TextField(verbose_name="Опис", blank=True)
 
