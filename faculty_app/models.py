@@ -56,3 +56,14 @@ class MainPageInfo(models.Model):
 
     def __str__(self):
         return "main page"
+
+
+class ExchangeProgram(models.Model):
+    university = models.CharField(max_length=255, verbose_name="Університет")
+    languages = models.CharField(max_length=255, verbose_name="Мови навчання")
+    places = models.CharField(max_length=50, verbose_name="Кількість місць")
+    deadline = models.DateField(verbose_name="Дедлайн подачі")
+    description = models.TextField(verbose_name="Опис", blank=True)
+
+    def __str__(self):
+        return self.university
