@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('university', models.CharField(max_length=255, verbose_name='Університет')),
                 ('languages', models.CharField(max_length=255, verbose_name='Мови навчання')),
-                ('places', models.CharField(max_length=50, verbose_name='Кількість місць')),
+                ('places', models.CharField(max_length=50, verbose_name='Кількість місць', null=True)),
                 ('deadline', models.DateField(verbose_name='Дедлайн подачі')),
                 ('description', models.TextField(blank=True, verbose_name='Опис')),
             ],
