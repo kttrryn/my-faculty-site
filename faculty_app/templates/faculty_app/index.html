@@ -7,15 +7,15 @@
       <section class="info-section">
         <h2>Про факультет</h2>
         <!-- linebreaks зберігає абзаци з тексту -->
-        {{ info.description|linebreaks }}
+        {{ info.description|safe|linebreaks }}
       </section>
       <section class="info-section">
         <h2>Основна інформація</h2>
-        {{ info.general_info|linebreaks }}
+        {{ info.general_info|safe|linebreaks }}
       </section>
       <section class="info-section">
         <h2>Контакти</h2>
-        {{ info.contacts|linebreaks }}
+        {{ info.contacts|safe|linebreaks }}
       </section>
     {% else %}
       <h1>Ласкаво просимо на сайт факультету!</h1>

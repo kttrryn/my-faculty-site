@@ -18,7 +18,7 @@
             <div class="department-programs" style="margin-top: 15px;">
               <h3>Спеціальності кафедри:</h3>
               {% if department.programs.all %}
-                <ul>
+                <ul style="list-style-type: none; padding-left: 0;">
                   {% for program in department.programs.all %}
                     <li>
                       <a href="/programs/{{ program.id }}/">{{ program.code }} — {{ program.name }}</a>
