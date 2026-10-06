@@ -1,5 +1,5 @@
 from django.db import models
-
+from datetime import date
 
 class Department(models.Model):
     name = models.CharField(max_length=150, verbose_name="name")
@@ -68,3 +68,8 @@ class ExchangeProgram(models.Model):
 
     def __str__(self):
         return self.university
+
+    @property
+    def is_active(self):
+        return self.deadline >= date.today()
+
