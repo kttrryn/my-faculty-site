@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 
-from .models import Department, MainPageInfo, Program, ExchangeProgram
+from .models import Department, ExchangeProgram, MainPageInfo, Program
 
 
 def main(request):
@@ -38,7 +38,5 @@ def department_detail(request, id):
 
 def exchange_list(request):
     programs = ExchangeProgram.objects.all()
-    context = {
-        'programs': programs
-    }
-    return render(request, 'faculty_app/exchange_list.html', context)
+    context = {"programs": programs}
+    return render(request, "faculty_app/exchange_list.html", context)

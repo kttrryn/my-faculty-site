@@ -1,5 +1,7 @@
-from django.db import models
 from datetime import date
+
+from django.db import models
+
 
 class Department(models.Model):
     name = models.CharField(max_length=150, verbose_name="name")
@@ -59,7 +61,9 @@ class MainPageInfo(models.Model):
 
 
 class ExchangeProgram(models.Model):
-    university_name = models.CharField(max_length=255, verbose_name="Назва університету")
+    university_name = models.CharField(
+        max_length=255, verbose_name="Назва університету"
+    )
     country = models.CharField(max_length=255, verbose_name="Країна")
     languages = models.CharField(max_length=255, verbose_name="Мови навчання")
     places = models.IntegerField(verbose_name="Кількість місць")
@@ -72,4 +76,3 @@ class ExchangeProgram(models.Model):
     @property
     def is_active(self):
         return self.deadline >= date.today()
-
