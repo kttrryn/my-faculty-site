@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ФГН НаУКМА{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navbar">
+        <div class="logo-container">
+          <img src="{% static 'img/img.png' %}" alt="Логотип" class="logo-img">
+          <a href="/" class="site-title">Факультет гуманітарних наук</a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="/">Головна</a></li>
+          <li><a href="/departments/">Кафедри</a></li>
+          <li><a href="/programs/">Спеціальності</a></li>
+          <li><a href="/exchange/">Обмін</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container">
+      {% block content %}{% endblock %}
+    </main>
+    <footer class="site-footer">
+      <p>© 2026 Проєкт для курсу веб-програмування</p>
+    </footer>
+  </body>
+</html>
